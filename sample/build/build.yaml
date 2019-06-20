@@ -1,0 +1,17 @@
+apiVersion: build.knative.dev/v1alpha1
+kind: Build
+metadata:
+  name: docker-build
+spec:
+  serviceAccountName: build-bot #service account created above
+  source:
+    git:
+      revision: master
+      url: "https://github.com/wanghongenx/helloworld-java-spring.git"
+  steps:
+    -
+      args:
+        - "--dockerfile=/Dockerfile"
+        - "--destination=docker.io/wanghongen/helloworld-go"
+      image: "gcr.azk8s.cn/kaniko-project/executor:v0.1.0"
+      name: build-and-push
