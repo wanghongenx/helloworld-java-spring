@@ -12,6 +12,6 @@ spec:
     -
       args:
         - "--dockerfile=/Dockerfile"
-        - "--destination=docker.io/wanghongen/helloworld-go"
+        - "--destination=docker.io/wanghongen/helloworld-java-spring"
       image: "gcr.azk8s.cn/kaniko-project/executor:v0.1.0"
       name: build-and-push
